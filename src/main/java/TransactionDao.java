@@ -77,4 +77,15 @@ public class TransactionDao {
             e.printStackTrace();
         }
     }
+
+    public void delete(long id) {
+        final String sql = "delete from transactions where id=?";
+        try {
+            PreparedStatement prepStmnt = connection.prepareStatement(sql);
+            prepStmnt.setLong(1, id);
+            prepStmnt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
